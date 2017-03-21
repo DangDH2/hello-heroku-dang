@@ -3,10 +3,10 @@
   "keywords": ["heroku", "salesforce", "force.com"],
   "env": {
     "SALESFORCE_KEY": {
-      "description": "Your Salesforce Connected App Key"
+      "description": "3MVG9ZL0ppGP5UrANLO8HYBR8B8FgZExewEiDzHjbViVJzYnWR4itmKIDI6gx4325dVbzXbHEJbwEbddJ2x7l"
     },
     "SALESFORCE_SECRET": {
-      "description": "Your Salesforce Connected App Secret"
+      "description": "8725184704941093944"
     },
     "SECRET": {
       "description": "A secret key for encryption",
