@@ -10,11 +10,11 @@ class MyApp < Sinatra::Base
     enable :logging
     enable :sessions
     set :show_exceptions, false
-    set :session_secret, ENV['SECRET']
+    set :session_secret, 'SECRET'
   end
 
   use OmniAuth::Builder do
-    provider :salesforce, ENV['SALESFORCE_KEY'], ENV['SALESFORCE_SECRET']
+    provider :salesforce, '3MVG9ZL0ppGP5UrANLO8HYBR8B8FgZExewEiDzHjbViVJzYnWR4itmKIDI6gx4325dVbzXbHEJbwEbddJ2x7l', '8725184704941093944'
   end
 
   before /^(?!\/(auth.*))/ do   
@@ -27,8 +27,8 @@ class MyApp < Sinatra::Base
       @client ||= Force.new instance_url:  session['instance_url'], 
                             oauth_token:   session['token'],
                             refresh_token: session['refresh_token'],
-                            client_id:     ENV['SALESFORCE_KEY'],
-                            client_secret: ENV['SALESFORCE_SECRET']
+                            client_id:     '3MVG9ZL0ppGP5UrANLO8HYBR8B8FgZExewEiDzHjbViVJzYnWR4itmKIDI6gx4325dVbzXbHEJbwEbddJ2x7l',
+                            client_secret: '8725184704941093944'
     end
 
   end
