@@ -7,3 +7,14 @@
   </tr>
 <% end %>
 </table>  
+<br/>
+<table>
+<tr><th>Account</th><th>ID</th><th>Description</th></tr>
+<% @local_accounts.each do |acc| %>
+  <tr>
+     <td><%= acc.Name %></td> 
+     <td><%= acc.Id %></td>
+     <td><%= acc.Description %></td>
+  </tr>
+<% end %>
+</table>  
