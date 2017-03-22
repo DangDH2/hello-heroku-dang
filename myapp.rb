@@ -42,7 +42,7 @@ class MyApp < Sinatra::Base
     uri = URI.parse(ENV['DATABASE_URL'])
     postgres = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
 
-    lcaccounts  = postgres.exec('SELECT ID,Name, Description FROM helloherokudang.account')
+    @lcaccounts  = postgres.exec('SELECT ID,Name,Description FROM helloherokudang.account')
     
     erb :index
   end
