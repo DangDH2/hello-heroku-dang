@@ -24,8 +24,8 @@ class MyApp < Sinatra::Base
 
 
   helpers do
-    def sf_client
-      @sf_client ||= Force.new instance_url:  session['instance_url'], 
+    def client
+      @client ||= Force.new instance_url:  session['instance_url'], 
                             oauth_token:   session['token'],
                             refresh_token: session['refresh_token'],
                             client_id:     '3MVG9ZL0ppGP5UrANLO8HYBR8B8FgZExewEiDzHjbViVJzYnWR4itmKIDI6gx4325dVbzXbHEJbwEbddJ2x7l',
@@ -37,12 +37,12 @@ class MyApp < Sinatra::Base
 
   get '/' do
     logger.info "Visited home page"
-    @accounts= sf_client.query("select Id, Name from Account")    
+    @accounts= client.query("select Id, Name from Account")    
 
     uri = URI.parse(ENV['DATABASE_URL'])
     postgres = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
 
-    local_accounts  = postgres.exec('SELECT ID,Name, Description FROM helloherokudang.account')
+    lcaccounts  = postgres.exec('SELECT ID,Name, Description FROM helloherokudang.account')
     
     erb :index
   end
